@@ -1,179 +1,193 @@
-# 🍽️ DishDiscovery 3D - Smart Recipe Finder
+🍽️ DishDiscovery  - Smart Recipe Finder
+A modern Vue 3-based smart recipe discovery application that helps you find perfect recipes based on ingredients you already have at home.
 
-一个基于 Vue 3 的智能食谱发现应用，帮助您根据家中已有的食材发现完美匹配的食谱。
-
-## ✨ 功能特性
-
-### 🔍 智能匹配系统
-- **食材选择**：从丰富的食材库中选择您家中已有的食材
-- **智能匹配算法**：根据选择的食材自动计算匹配百分比，优先显示最佳匹配食谱
-- **匹配度显示**：每个食谱卡片显示匹配百分比和缺少的食材
-
-### 🎨 现代 UI 设计
-- **3D 视觉效果**：卡片悬停时的 3D 倾斜和浮雕效果
-- **流畅动画**：页面过渡、列表动画和按钮悬停效果
-- **暗色主题**：护眼的深色配色方案，使用冷色调（蓝色、紫色、粉色）
-- **毛玻璃效果**：现代化的半透明背景设计
-
-### 🔧 筛选与搜索
-- **饮食偏好筛选**：素食、纯素、无麸质、生酮等
-- **难度筛选**：简单、中等、困难
-- **时间筛选**：20分钟内、20-40分钟、40分钟以上
-- **关键词搜索**：按名称、标签搜索食谱
-
-### 📱 响应式设计
-- 完全适配桌面端和移动端
-- 移动端优化的布局和交互
-- 触屏友好的界面元素
-
-## 🛠️ 技术栈
-
-- **Vue 3** - 使用 Composition API
-- **Pinia** - 状态管理
-- **Vue Router** - 路由管理
-- **Tailwind CSS** - 样式框架
-- **Vite** - 构建工具
-
-## 📦 安装与运行
-
-### 1. 安装依赖
-
-```bash
+✨ Features
+🔍 Smart Matching System
+Ingredient Selection: Choose from a rich library of ingredients available in your kitchen
+Intelligent Matching Algorithm: Automatically calculates match percentage based on selected ingredients
+Match Percentage Display: Each recipe card shows match percentage and missing ingredients
+Best Match Priority: Recipes with higher ingredient matches appear first
+🎨 Modern UI Design
+ Visual Effects:  tilt and emboss effects on card hover
+Smooth Animations: Page transitions, list animations, and button hover effects
+Dark Theme: Eye-friendly dark color scheme using cool tones (blue, purple, pink)
+Glassmorphism: Modern semi-transparent background design with backdrop blur
+Glowing Effects: Subtle glow shadows and gradient animations
+🌍 Multi-Language Support
+4 Languages Available:
+🇺🇸 English (default)
+🇫🇷 Français (French)
+🇪🇸 Español (Spanish)
+🇨🇳 中文 (Chinese)
+Easy Language Switching: Click the globe icon in the header to switch languages
+Persistent Language Choice: Language preference is saved in localStorage
+🔧 Filters & Search
+Dietary Preferences: Vegetarian, Vegan, Gluten-Free, Keto, High Protein, Dairy-Free
+Difficulty Level: Easy, Medium, Hard
+Cooking Time: Under 20 min, 20-40 min, Over 40 min
+Keyword Search: Search recipes by name or tags
+Tab-Based Filter Interface: Elegant compact design with Dietary, Difficulty, and Time tabs
+📱 Responsive Design
+Fully adaptive for desktop and mobile
+Mobile-optimized layout and interactions
+Touch-friendly interface elements
+Collapsible filter sections for smaller screens
+📊 Smart Features
+Ingredient Pantry Management: Add/remove ingredients with one click
+Quick Add Categories: One-click addition of protein, vegetables, staples, and dairy
+Real-Time Filtering: Recipe list updates instantly as you select ingredients
+Recipe Sorting: Sort by best match, cooking time, or calories
+Nutrition Information: Detailed nutrition data for each recipe
+🛠️ Tech Stack
+Vue 3 - Using Composition API with <script setup>
+Pinia - State management for ingredients and recipes
+Vue Router - Client-side routing with dynamic routes
+Tailwind CSS - Utility-first styling with custom design system
+Vite - Lightning-fast build tool and development server
+vue-i18n - Internationalization for multi-language support
+📦 Installation & Usage
+1. Install Dependencies
+bash
 cd dishdiscovery
 npm install
-```
-
-### 2. 启动开发服务器
-
-```bash
+2. Start Development Server
+bash
 npm run dev
-```
+The app will be available at http://localhost:5173
 
-### 3. 构建生产版本
-
-```bash
+3. Build for Production
+bash
 npm run build
-```
-
-### 4. 预览生产构建
-
-```bash
+4. Preview Production Build
+bash
 npm run preview
-```
-
-## 📁 项目结构
-
-```
+📁 Project Structure
 dishdiscovery/
 ├── public/
-│   └── favicon.svg
+│   └── favicon.svg                  # App favicon
 ├── src/
 │   ├── assets/
 │   ├── components/
-│   │   ├── IngredientSelector.vue  # 食材选择器组件
-│   │   ├── Filters.vue              # 筛选器组件
-│   │   ├── RecipeCard.vue           # 食谱卡片组件
-│   │   ├── RecipeList.vue           # 食谱列表组件
-│   │   └── RecipeDetail.vue         # 食谱详情弹窗
+│   │   ├── IngredientSelector.vue   # Ingredient selection component
+│   │   ├── Filters.vue              # Tab-based filter component
+│   │   ├── RecipeCard.vue           #  recipe card component
+│   │   ├── RecipeList.vue           # Recipe grid list component
+│   │   └── RecipeDetail.vue         # Recipe detail modal
 │   ├── data/
-│   │   └── recipes.json             # 模拟食谱数据
+│   │   └── recipes.json             # Mock recipe data (16 recipes)
 │   ├── stores/
-│   │   ├── pantryStore.js           # 食材库存状态管理
-│   │   └── recipeStore.js           # 食谱状态管理
+│   │   ├── pantryStore.js           # Pantry/ingredients state management
+│   │   └── recipeStore.js           # Recipe state & filtering logic
 │   ├── views/
-│   │   ├── Home.vue                 # 首页
-│   │   └── RecipeDetailPage.vue     # 食谱详情页
-│   ├── App.vue
-│   ├── main.js
-│   └── style.css
-├── index.html
-├── package.json
-├── tailwind.config.js
-├── postcss.config.js
-└── vite.config.js
-```
+│   │   ├── Home.vue                 # Main dashboard view
+│   │   └── RecipeDetailPage.vue     # Full recipe detail page
+│   ├── i18n.js                      # Internationalization configuration
+│   ├── App.vue                      # Root component with language switcher
+│   ├── main.js                      # App entry point
+│   └── style.css                    # Global styles & animations
+├── index.html                       # HTML entry point
+├── package.json                     # Project dependencies
+├── tailwind.config.js               # Tailwind configuration
+├── postcss.config.js                # PostCSS configuration
+└── vite.config.js                   # Vite configuration
+🎯 User Guide
+1. Select Ingredients
+Search and click ingredients in the left panel to add them to your pantry
+Use Quick Add categories (Protein, Vegetables, Staples, Dairy) for fast selection
+Selected recipes update in real-time based on your ingredient selection
+Click ingredient tags to remove them from your selection
+2. View Recipe Details
+Click any recipe card to see full details
+View complete ingredient list and step-by-step cooking instructions
+See which ingredients you already have (highlighted in green)
+Check nutrition information and cooking tips
+3. Filter Results
+Use the tab-based filter interface to narrow down results
+Multi-select dietary preferences and difficulty levels
+Filter by maximum cooking time
+Clear all filters with one click
+4. Change Language
+Click the globe icon in the header
+Select your preferred language
+Your choice is saved for future visits
+🎨 Design System
+Color Palette (Cool Tones)
+Primary: Indigo 500 (#6366f1) - Main actions and highlights
+Accent: Sky 500 (#0ea5e9) - Secondary actions and time indicators
+Secondary: Pink 500 (#ec4899) - Heat indicators and special badges
+Background: Slate 950 (#020617) - Deep dark background
+Surface: Slate 800 (#1e293b) - Card backgrounds
+Text: Slate 100 (#f8fafc) - Primary text
+Text Muted: Slate 400 (#94a3b8) - Secondary text
+ Effects
+Card hover with  tilt transformation
+Parallax image zoom on hover
+Glowing shadow effects
+Gradient background animations
+Smooth scale transitions
+Typography
+Headings: Outfit or Montserrat (Modern geometric sans-serif)
+Body: Inter (High readability)
+📝 Data Source
+Recipe Data: All 16 recipes are mock data in JSON format
+Images: High-quality food photography from Unsplash
+Cuisine Variety: Includes Italian, Mexican, Thai, French, Asian, and Mediterranean recipes
+Dietary Options: Vegetarian, Vegan, Gluten-Free, Keto, High Protein, Dairy-Free
+🔧 Customization
+Adding New Recipes
+Add new recipe objects to src/data/recipes.json:
 
-## 🎯 使用指南
-
-### 1. 选择食材
-- 在左侧面板中搜索并点击食材进行选择
-- 使用快速添加分类快速选择常用食材组合
-- 选中后会显示匹配百分比最高的食谱
-
-### 2. 查看食谱
-- 点击任意食谱卡片查看详情
-- 在详情页查看完整的食材清单和烹饪步骤
-- 已选中的食材会高亮显示
-
-### 3. 筛选结果
-- 使用筛选器缩小搜索范围
-- 支持多选饮食偏好和难度
-- 按烹饪时间快速筛选
-
-## 🎨 设计说明
-
-### 配色方案（冷色调）
-- **主色**：Indigo 500 (#6366f1)
-- **强调色**：Sky 500 (#0ea5e9)
-- **辅助色**：Pink 500 (#ec4899)
-- **背景**：Slate 950 (#020617)
-- **卡片**：Slate 800 (#1e293b)
-
-### 3D 效果
-- 卡片悬停时产生 3D 倾斜效果
-- 图片缩放动画
-- 发光阴影效果
-- 渐变背景动画
-
-## 📝 数据来源
-
-- 所有食谱数据均为模拟数据（JSON 格式）
-- 食谱图片来自 Unsplash
-- 包含 16 道精选食谱，涵盖多种菜系和饮食需求
-
-## 🔧 自定义
-
-### 添加新食谱
-在 `src/data/recipes.json` 中添加新食谱对象：
-
-```json
+json
 {
   "id": 17,
-  "title": "新食谱名称",
-  "shortDescription": "简短描述",
-  "fullDescription": "完整描述",
-  "image": "图片URL",
-  "ingredients": ["食材1", "食材2"],
-  "tags": ["标签1", "标签2"],
-  "dietary": ["dietary标签"],
+  "title": "Recipe Name",
+  "shortDescription": "A brief description",
+  "fullDescription": "A detailed description of the dish",
+  "image": "https://images.unsplash.com/photo-...",
+  "ingredients": ["ingredient1", "ingredient2", "ingredient3"],
+  "tags": ["tag1", "tag2", "tag3"],
+  "dietary": ["vegetarian", "gluten-free"],
   "time": 30,
   "difficulty": "Easy",
   "calories": 400,
   "protein": 20,
   "carbs": 45,
   "fat": 15,
-  "instructions": ["步骤1", "步骤2"],
-  "tips": "烹饪小贴士"
+  "instructions": [
+    "Step 1: Do something",
+    "Step 2: Do something else"
+  ],
+  "tips": "Cooking tips and tricks"
 }
-```
+Adding New Languages
+Edit src/i18n.js to add new language translations:
 
-### 自定义颜色
-在 `tailwind.config.js` 中修改颜色配置：
+javascript
+const messages = {
+  de: {
+    app: {
+      title: 'DishDiscovery ',
+      subtitle: 'Intelligenter Rezeptfinder'
+    },
+    pantry: {
+      title: 'Wählen Sie Ihre Zutaten',
+      // ... more translations
+    }
+  }
+}
+Customizing Colors
+Modify tailwind.config.js to change the color scheme:
 
-```javascript
+javascript
 colors: {
   primary: {
-    500: '#your-color',
+'#your-color-code',
   },
-  // ...
+  accent: {
+'#your-color-code',
+  }
 }
-```
+📄 License
+MIT License - Feel free to use this project for personal or commercial purposes.
 
-## 📄 许可证
-
-MIT License
-
----
-
-**Made with ❤️ by MiniMax Agent**
-# Recipes_Project
+Made by DevNova team 

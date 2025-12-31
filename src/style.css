@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-surface-700;
+  }
+  
+  body {
+    @apply bg-surface-950 text-surface-100;
+    background-image: 
+      radial-gradient(ellipse at top, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(14, 165, 233, 0.08) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-500;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl
+           shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/40 
+           transform hover:-translate-y-0.5 transition-all duration-300
+           active:scale-95 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-surface-800 text-surface-100 font-medium rounded-xl
+           border border-surface-700 hover:bg-surface-700 hover:border-surface-600
+           transform hover:-translate-y-0.5 transition-all duration-300
+           active:scale-95 active:translate-y-0;
+  }
+
+  .card {
+    @apply bg-surface-800/80 backdrop-blur-xl rounded-2xl border border-surface-700/50
+           shadow-xl shadow-black/20;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-2xl hover:shadow-primary-500/10 hover:border-primary-500/30
+           hover:-translate-y-2 transition-all duration-500;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-surface-800/50 border border-surface-700 rounded-xl
+           text-surface-100 placeholder-surface-500 
+           focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500
+           transition-all duration-300;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-500/20 text-primary-300 border border-primary-500/30;
+  }
+
+  .badge-accent {
+    @apply badge bg-accent-500/20 text-accent-300 border border-accent-500/30;
+  }
+
+  .badge-pink {
+    @apply badge bg-pink-500/20 text-pink-300 border border-pink-500/30;
+  }
+
+  .ingredient-tag {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-surface-700/50 rounded-xl
+           border border-surface-600/50 text-surface-200 text-sm
+           hover:bg-surface-600/50 hover:border-primary-500/30 transition-all duration-300;
+  }
+
+  .ingredient-tag-selected {
+    @apply ingredient-tag bg-primary-500/20 border-primary-500/50 text-primary-200;
+  }
+
+  .glass {
+    @apply bg-surface-800/30 backdrop-blur-xl border border-surface-700/30;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
+
+/* Custom animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+}
+
+/* Recipe card 3D tilt effect */
+.recipe-card-3d {
+  transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+}
+
+.recipe-card-3d:hover {
+  transform: translateY(-8px);
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 30px -10px rgba(99, 102, 241, 0.4);
+}
+
+.glow-accent {
+  box-shadow: 0 0 30px -10px rgba(14, 165, 233, 0.4);
+}
+
+/* Match percentage indicator */
+.match-ring {
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 0.8s ease-out;
+}
+
+/* Page transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* List transitions */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.4s ease;
+}
+
+.list-enter-from {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.list-move {
+  transition: transform 0.4s ease;
+}
